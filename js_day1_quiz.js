@@ -86,7 +86,7 @@ animals.push("giraffe");
 animals.unshift("horse");
 
 // 5.6. Assign the index of hedgehog to a variable
-**var hedgehog = animals.hedgehog;
+var hedgehog = animals.findIndex("hedgehog");
 
 
 // Section 6
@@ -143,6 +143,7 @@ var total = 0;
 for(account of accounts){
   total += account.amount;
 }
+return total;
 
 // 7.2 Find the amount of money in the account with the largest balance
 var array = [];
@@ -151,9 +152,17 @@ for (account of accounts){
   array.push(account.amount);
 }
 
+var maxAmount = Math.max.apply(Math, array);
 
 
 // 7.3 Find the name of the account with the smallest balance
+var minAmount = Math.min.apply(Math, array);
+for (account of accounts){
+  if (account.amount === minAmount){
+    return account.name;
+  }
+}
+
 // 7.4 Calculate the average bank account value
 var average = total / accounts.length;
 
@@ -161,10 +170,52 @@ var average = total / accounts.length;
 var marcsAccount = accounts[2].amount;
 
 // 7.6 Find the holder of the largest bank account
+var maxAmount = Math.max.apply(Math, array);
+for (account of accounts){
+  if (account.amount === maxAmount){
+    return account.name;
+  }
+}
+
+
 // 7.7 Calculate the total cash in business accounts
+var bizTotal = 0;
+for (account of accounts){
+  if (account.type ==="business"){
+    bizTotal += account.amount;
+  }
+  return bizTotal;
+}
+
+
 // 7.8 Find the largest personal account owner
+var personal = [];
+for (account of accounts){
+  if (account.type ==="personal"){
+    personal.push(account.amount);
+  }
+}
+  var maxPersonalAmount = Math.max.apply(Math, personal);
+
+  for (account of accounts){
+    if (account.amount === maxPersonalAmount){
+      return account.name;
+    }
+  }
 
 
 // Section 8
 
 // Assign a variable myPerson to a hash, giving them a name, height, favourite food and an eat method
+
+var myPerson = {
+  name: "Jane",
+  height: 5.5,
+  favouriteFood: "sushi"
+};
+
+function eat(person){
+  console.log (myPerson.name, "is eating", myPerson.favouriteFood, "with chopsticks");
+}
+
+eat(myPerson);
