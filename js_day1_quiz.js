@@ -143,7 +143,7 @@ var total = 0;
 for(var account of accounts){
   total += account.amount;
 }
-return total;
+console.log(total);
 
 // 7.2 Find the amount of money in the account with the largest balance
 var array = [];
@@ -153,27 +153,41 @@ for (var account of accounts){
 }
 
 var maxAmount = Math.max.apply(Math, array);
+console.log(maxAmount);
 
 
 // 7.3 Find the name of the account with the smallest balance
+var array = [];
+for (var account of accounts){
+  array.push(account.amount);
+}
+
 var minAmount = Math.min.apply(Math, array);
 for (var account of accounts){
   if (account.amount === minAmount){
-    return account.name;
+    console.log(account.name);
   }
 }
 
 // 7.4 Calculate the average bank account value
 var average = total / accounts.length;
+console.log(average);
 
 // 7.5 Find the value of marcs bank account
 var marcsAccount = accounts[2].amount;
+console.log(marcsAccount);
 
 // 7.6 Find the holder of the largest bank account
+var array = [];
+for (var account of accounts){
+  array.push(account.amount);
+}
+
+
 var maxAmount = Math.max.apply(Math, array);
 for (var account of accounts){
   if (account.amount === maxAmount){
-    return account.name;
+    console.log(account.name);
   }
 }
 
@@ -184,11 +198,12 @@ for (var account of accounts){
   if (account.type ==="business"){
     bizTotal += account.amount;
   }
-  return bizTotal;
 }
+  console.log(bizTotal);
 
 
 // 7.8 Find the largest personal account owner
+
 var personal = [];
 for (var account of accounts){
   if (account.type ==="personal"){
@@ -197,9 +212,10 @@ for (var account of accounts){
 }
   var maxPersonalAmount = Math.max.apply(Math, personal);
 
+
   for (var account of accounts){
     if (account.amount === maxPersonalAmount){
-      return account.name;
+      console.log(account.name);
     }
   }
 
@@ -218,4 +234,4 @@ function eat(person){
   console.log (myPerson.name, "is eating", myPerson.favouriteFood, "with chopsticks");
 }
 
-eat(myPerson);
+console.log(eat(myPerson));
