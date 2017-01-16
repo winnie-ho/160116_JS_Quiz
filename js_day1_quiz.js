@@ -15,7 +15,7 @@ hash
 /* 1.6 */ 1.1;
 number
 /* 1.7 */ var myVariable;
-Variable
+undefined
 
 
 // Section 2
@@ -74,7 +74,7 @@ var animals = ["raccoon","hedgehog","mouse","gerbil"];
 var firstElement = animals[0];
 
 // 5.2. Assign the last element to a variable
-var lastElement = animals[3];
+var lastElement = animals[animals.length - 1];
 
 // 5.3. Assign the length of an array to a variable
 var length = animals.length;
@@ -86,20 +86,19 @@ animals.push("giraffe");
 animals.unshift("horse");
 
 // 5.6. Assign the index of hedgehog to a variable
-var hedgehog = animals.findIndex("hedgehog");
+var hedgehogIndex = animals.indexOf("hedgehog");
 
 
 // Section 6
 
 // 6.1 Create an array of 5 vegetables
-var vegetables = ["broccoli", "aubergine", "carrot", "courgette", "asparagus"]
+var vegetables = ["broccoli", "aubergine", "carrot", "courgette", "asparagus"];
 
 // 6.2 Loop over the array and write to the console using a "while"
 var i = 0;
 
 while (i < vegetables.length){
   console.log(vegetables[i]);
-  i++;
 }
 
 // 6.3 Loop again using a "for" with a counter
@@ -140,7 +139,7 @@ var accounts = [
 
 // 7.1 Calculate the total cash in accounts
 var total = 0;
-for(account of accounts){
+for(var account of accounts){
   total += account.amount;
 }
 return total;
@@ -148,7 +147,7 @@ return total;
 // 7.2 Find the amount of money in the account with the largest balance
 var array = [];
 
-for (account of accounts){
+for (var account of accounts){
   array.push(account.amount);
 }
 
@@ -157,7 +156,7 @@ var maxAmount = Math.max.apply(Math, array);
 
 // 7.3 Find the name of the account with the smallest balance
 var minAmount = Math.min.apply(Math, array);
-for (account of accounts){
+for (var account of accounts){
   if (account.amount === minAmount){
     return account.name;
   }
@@ -171,7 +170,7 @@ var marcsAccount = accounts[2].amount;
 
 // 7.6 Find the holder of the largest bank account
 var maxAmount = Math.max.apply(Math, array);
-for (account of accounts){
+for (var account of accounts){
   if (account.amount === maxAmount){
     return account.name;
   }
@@ -180,7 +179,7 @@ for (account of accounts){
 
 // 7.7 Calculate the total cash in business accounts
 var bizTotal = 0;
-for (account of accounts){
+for (var account of accounts){
   if (account.type ==="business"){
     bizTotal += account.amount;
   }
@@ -190,14 +189,14 @@ for (account of accounts){
 
 // 7.8 Find the largest personal account owner
 var personal = [];
-for (account of accounts){
+for (var account of accounts){
   if (account.type ==="personal"){
     personal.push(account.amount);
   }
 }
   var maxPersonalAmount = Math.max.apply(Math, personal);
 
-  for (account of accounts){
+  for (var account of accounts){
     if (account.amount === maxPersonalAmount){
       return account.name;
     }
