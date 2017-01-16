@@ -99,6 +99,7 @@ var i = 0;
 
 while (i < vegetables.length){
   console.log(vegetables[i]);
+  i++;
 }
 
 // 6.3 Loop again using a "for" with a counter
